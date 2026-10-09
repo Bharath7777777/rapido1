@@ -34,15 +34,15 @@ public class CustomerApplication {
 		template.afterPropertiesSet();
 		return template;
 	}
-	@Bean
-	public CommandLineRunner testRedis(RedisTemplate<String, String> redisTemplate) {
-	    return args -> {
-	        redisTemplate.opsForValue().set("spring_test", "connected");
-
-	        System.out.println(
-	            "Redis test value = " +
-	            redisTemplate.opsForValue().get("spring_test")
-	        );
-	    };
-}
+//	@Bean
+//	public CommandLineRunner testRedis(RedisTemplate<String, String> redisTemplate) {
+//	    return args -> {
+//	        redisTemplate.opsForValue().set("spring_test", "connected");
+//
+//	        System.out.println(
+//	            "Redis test value = " +
+//	            redisTemplate.opsForValue().get("spring_test")
+//	        );
+//	    };
+//}
 }
