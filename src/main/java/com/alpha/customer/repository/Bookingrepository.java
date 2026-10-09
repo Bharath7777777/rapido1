@@ -7,19 +7,18 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.alpha.customer.entity.Booking;
 
-public interface Bookingrepository extends JpaRepository<Booking, Integer>{
+public interface Bookingrepository
+extends JpaRepository<Booking, Integer> {
 
-	Optional<Booking> findByIdempotentId(String idempotentId);
+Optional<Booking> findByIdempotentId(String idempotentId);
 
-	List<Booking> findByCustomerId(int custid);
+List<Booking> findByCustomers_Custid(int custid);
 
-	List<Booking> findByCustomerIdAndStatus(int custid, String bstatus);
+List<Booking> findByCustomers_CustidAndBstatus(int custid, String bstatus);
 
-	List<Booking> findByRiderid(int riderid);
+List<Booking> findByRiderid(int riderid);
 
-	List<Booking> findByRideridAndStatus(int riderid, String bstatus);
+List<Booking> findByRideridAndBstatus( int riderid, String bstatus);
 
-	List<Booking> findByRideridAndStatusAndBookingdateBetween(int riderid, String bstatus, String from, String to);
+List<Booking> findByRideridAndBstatusAndBookingdateBetween(int riderid, String bstatus, String from, String to);
 }
-
-
