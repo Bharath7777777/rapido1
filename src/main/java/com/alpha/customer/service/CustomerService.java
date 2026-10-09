@@ -409,15 +409,15 @@ public class CustomerService {
 
 		if (status.equalsIgnoreCase("all")) {
 
-			return bookingrepo.findByCustomerId(customerid);
+			return bookingrepo.findByCustomers_Custid(customerid);
 
 		} else if (status.equalsIgnoreCase("completed")) {
 
-			return bookingrepo.findByCustomerIdAndStatus(customerid, "completed");
+			return bookingrepo.findByCustomers_CustidAndBstatus(customerid, "completed");
 
 		} else if (status.equalsIgnoreCase("canceled")) {
 
-			return bookingrepo.findByCustomerIdAndStatus(customerid, "customercancel");
+			return bookingrepo.findByCustomers_CustidAndBstatus(customerid, "customercancel");
 
 		} else {
 
@@ -435,11 +435,11 @@ public class CustomerService {
 
 		} else if (status.equalsIgnoreCase("completed")) {
 
-			bookings = bookingrepo.findByRideridAndStatus(riderid, "completed");
+			bookings = bookingrepo.findByRideridAndBstatus(riderid, "completed");
 
 		} else if (status.equalsIgnoreCase("ridercancel")) {
 
-			bookings = bookingrepo.findByRideridAndStatus(riderid, "ridercancel");
+			bookings = bookingrepo.findByRideridAndBstatus(riderid, "ridercancel");
 
 		} else {
 
@@ -472,7 +472,7 @@ public class CustomerService {
 
 	public EarningSummaryDto earningSummaryService(int riderid, String from, String to) {
 
-		List<Booking> bookings = bookingrepo.findByRideridAndStatusAndBookingdateBetween(riderid, "completed",
+		List<Booking> bookings = bookingrepo.findByRideridAndBstatusAndBookingdateBetween(riderid, "completed",
 				from, to);
 
 		int noofrides = bookings.size();
